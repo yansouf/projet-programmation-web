@@ -1,31 +1,28 @@
 <template>
     <div class="container">
- 
+ <div class="row">
+     <div class="col-md-3"></div>
+     <div class="col-md-6">
                 <app-unit-types @unitschanged="changeunits"></app-unit-types>
-                <app-converter :units="unitslist" :trys="test"></app-converter>
- 
+                <app-converter :units="unitslist" ></app-converter> 
+     </div>
+     <div class="col-md-3"></div>
+ </div>
     </div>
 </template>
 
 <script>
+    import axios from 'axios' 
     import UnitTypes from './components/unittype.vue';
     import Converter from './components/converter.vue';
 
     export default {
         data:function () {
             return { 
-                test:"sdfdsf",
                 unitslist:[{unite:"Kg",val:1},
                         {unite:"G",val:1000},
                         {unite:"Lbs",val:2.20462},
                         {unite:"mg",val:1000000}],
-                weights:[{unite:"Kg",val:1},
-                        {unite:"G",val:1000},
-                        {unite:"Lbs",val:2.20462},
-                        {unite:"mg",val:1000000}],
-                longeurs:[{unite:"Km",val:1},
-                            {unite:"m",val:1000},
-                            {unite:"Inches",val:39370.08}]
             }
         },
         components: {
@@ -34,12 +31,35 @@
         },
         methods:{
             changeunits(event){
-                this.unitslist=this[event];
-              
-            }
+                var app=this;
+                axios.get("http://127.0.0.1/slim/units/"+event).then(function (res) {
+                    
+                var nouv_unit=res.data;
+                var nouv_unit_list=[];
+
+                for (var variable in nouv_unit) {
+                    var obj={
+                        unite:variable,
+                        val:nouv_unit[variable]
+                    }
+                    
+                    nouv_unit_list.push(obj);
+                    
+                }
+                app.unitslist=nouv_unit_list;
+                }).catch(e => {
+      console.log(e)
+    }) 
+
+                
+            } 
         }
     }
 </script>
 
 <style>
+.col-sm-6
+{
+    padding: 20px auto;
+}
 </style>

@@ -1,12 +1,14 @@
-<template>
-                <div class="row">
-                    <div class="col-sm-6">
+<template> 
+                <div class="row" >
+                    <div class="col-sm-12">
                         <select class="form-control"  style="width: 100%;" @change="changeunits">
-                            <option value="weights">weights</option>
-                            <option value="longeurs">longueur</option> 
+                            <option value="Weights">Weights</option>
+                            <option value="Longeurs">Longeurs</option> 
                         </select>
                     </div>
-                </div>
+                </div>      
+    
+
 </template>
 
 <script>

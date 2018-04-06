@@ -1,14 +1,14 @@
 <template>
 			<div class="row">
 		
-				<div class="col-sm-3"> 
+				<div class="col-md-6" > 
 					<input class="form-control" type="number" style="width: 100%;" v-model="inputval" @input="convert" >
 						<select class="form-control"  style="width: 100%;" @change="changesource">
 						<option  v-for="unit in units" :value="unit.val" >{{unit.unite}}</option>
 					 	</select>
 				</div> 
-				<div class="col-sm-3">
-						<input class="form-control" type="number" style="width: 100%;" v-model="outputval" @input="convert">
+				<div class="col-md-6">
+						<input class="form-control" type="number" style="width: 100%;" v-model="outputval" @input="convert" readonly>
 						<select class="form-control"   style="width: 100%;" @change="changedest">
 					 		<option  v-for="unit in units" :value="unit.val" >{{unit.unite}}</option>
 					 	</select>
@@ -31,11 +31,11 @@ export default {
 		},
 		watch:{
 			units:function (value) {
-				this.units=value;
-				this.convert();
-				this.changedest();
-				this.changesource();
-				console.log("hiii");
+				// this.units=value;
+				// this.convert();
+				// this.changedest();
+				// this.changesource();
+				// console.log("hiii");
 			}
 		},
 		methods:{
@@ -55,5 +55,8 @@ export default {
 }
 </script>
 <style>
-	
+.col-md-6
+{
+	padding:20px 20px ;
+}
 </style>
