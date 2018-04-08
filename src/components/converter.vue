@@ -2,16 +2,17 @@
 			<div class="row">
 		
 				<div class="col-md-6" > 
-					<input class="form-control" type="number" style="width: 100%;" v-model="inputval" @input="convert" >
-						<select class="form-control"  style="width: 100%;" @change="changesource">
+					<input class="form-control" type="number" style="width: 100%;" v-model="inputval"  >
+						<select class="form-control"  style="width: 100%;" v-model="sourceunit" selected="unit.vall==1">
 						<option  v-for="unit in units" :value="unit.val" >{{unit.unite}}</option>
 					 	</select>
 				</div> 
 				<div class="col-md-6">
-						<input class="form-control" type="number" style="width: 100%;" v-model="outputval" @input="convert" readonly>
-						<select class="form-control"   style="width: 100%;" @change="changedest">
-					 		<option  v-for="unit in units" :value="unit.val" >{{unit.unite}}</option>
+						<input class="form-control" type="number" style="width: 100%;" v-model="outputval" readonly>
+						<select class="form-control"   style="width: 100%;" v-model="destunit">
+					 		<option  v-for="unit in units" :value="unit.val" selected="unit.vall==1">{{unit.unite}}</option>
 					 	</select>
+
 				</div>
 			</div>
 </template>
@@ -23,35 +24,22 @@ export default {
 		},
 		data: function () {
 			return{
-				outputval:"0",
-				inputval:"0",
-				sourceunit:"1",
-				destunit:"1"
+				inputval:0,
+				sourceunit:1,
+				destunit:1
 			}
 		},
 		watch:{
-			units:function (value) {
-				// this.units=value;
-				// this.convert();
-				// this.changedest();
-				// this.changesource();
-				// console.log("hiii");
+			units:function () {
+				this.sourceunit=1;
+				this.destunit=1;
 			}
 		},
-		methods:{
-				convert(){
-					this.outputval=(this.inputval/this.sourceunit)*this.destunit;
-				},
-				changesource(event){
-					this.sourceunit=event.target.value;
-					this.convert();
-				},
-				changedest(event){
-					this.destunit=event.target.value;
-					this.convert();
-				}
+		computed:{
+			outputval:function(){
+				return (this.inputval/this.sourceunit)*this.destunit;
+			}
 		}
-
 }
 </script>
 <style>

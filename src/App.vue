@@ -4,7 +4,7 @@
      <div class="col-md-3"></div>
      <div class="col-md-6">
                 <app-unit-types @unitschanged="changeunits"></app-unit-types>
-                <app-converter :units="unitslist" ></app-converter> 
+                <app-converter :units="unitslist" v-if="unitslist.length > 0"></app-converter> 
      </div>
      <div class="col-md-3"></div>
  </div>
@@ -19,10 +19,7 @@
     export default {
         data:function () {
             return { 
-                unitslist:[{unite:"Kg",val:1},
-                        {unite:"G",val:1000},
-                        {unite:"Lbs",val:2.20462},
-                        {unite:"mg",val:1000000}],
+                unitslist:[],
             }
         },
         components: {
