@@ -59,4 +59,18 @@
 {
     padding: 20px auto;
 }
+html{
+    overflow: hidden; 
+}
+body
+{
+    margin: 0;
+    box-sizing: border-box;
+}
+html,body{
+   
+    background-image: linear-gradient(to bottom, #001baf, #6153c6, #988adb, #cbc3ee, #ffffff);
+    background-repeat: no-repeat;
+    height: 100%;
+}
 </style>
