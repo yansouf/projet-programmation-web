@@ -1,10 +1,17 @@
 <template>
+
     <div class="container">
  <div class="row">
      <div class="col-md-3"></div>
      <div class="col-md-6">
+    <div class="jumbotron converter">
                 <app-unit-types @unitschanged="changeunits"></app-unit-types>
-                <app-converter :units="unitslist" v-if="unitslist.length > 0"></app-converter> 
+                <transition name="fade">
+                   <app-converter :units="unitslist" v-if="unitslist.length > 0"></app-converter>    
+                </transition>
+                 
+    </div>
+
      </div>
      <div class="col-md-3"></div>
  </div>
@@ -55,6 +62,29 @@
 </script>
 
 <style>
+.fade-enter
+{
+    opacity:0;
+    margin-left: 30px;
+}
+.fade-enter-active
+{
+    transition: all 1.5s;
+}
+.fade-leave
+{
+    
+}
+.fade-leave-active
+{
+    
+}
+
+.converter
+{
+    background-color: white;
+    margin-top: 30%;
+}
 .col-sm-6
 {
     padding: 20px auto;
@@ -72,5 +102,5 @@ html,body{
     background-image: linear-gradient(to bottom, #001baf, #6153c6, #988adb, #cbc3ee, #ffffff);
     background-repeat: no-repeat;
     height: 100%;
-}
+} 
 </style>
