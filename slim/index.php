@@ -2,7 +2,7 @@
 require 'vendor/autoload.php';
 $app = new \Slim\App();
 $app->get("/units/{name}",function($request, $response, $args){
-	$Weights = array(
+	$Poids = array(
 	'Kilograms' => 1,
 	 "Pounds"=>2.20462,
 	 'milligrams' => 1000000,
@@ -25,7 +25,7 @@ $app->get("/units/{name}",function($request, $response, $args){
 	 "Yards"=>1.09313,
 	 "Miles"=>0.000621
 );
-	$unites=array("Weights"=>$Weights,"Longeurs"=>$Longeurs);
+	$unites=array("Poids"=>$Poids,"Longeurs"=>$Longeurs);
  	if (isset($unites[$args['name']])) {
  	return $response->withJson($unites[$args['name']])->withHeader('Access-Control-Allow-Origin', '*'); 	
  	}
