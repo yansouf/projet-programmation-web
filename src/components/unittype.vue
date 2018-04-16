@@ -13,7 +13,7 @@
 export default{
     data(){
             return {
-                unite:["Choisisez les unités","Weights","Longeurs"]
+                unite:["Choisisez les unités","Poids","Longeurs"]
             }
     },
         methods:{

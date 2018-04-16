@@ -2,7 +2,7 @@
 			<div class="row">
 		
 				<div class="col-md-6" > 
-					<input class="form-control " type="number" style="width: 100%;" v-model="inputval"  >
+					<input class="form-control " type="number" style="width: 100%;" v-model="inputval" min="0">
 						<select class="form-control"  style="width: 100%;" v-model="sourceunit" selected="unit.vall==1">
 						<option  v-for="unit in units" :value="unit.val" >{{unit.unite}}</option>
 					 	</select>
