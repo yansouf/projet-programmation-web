@@ -1,18 +1,18 @@
 <template>
-
-    <div class="container">
- <div class="row">
-     <div class="col-md-3"></div>
-     <div class="col-md-6">
-    <div class="jumbotron converter">
+    <div class="container">   
+        <div class="row">
+            <div class="container" > 
+                    <img src="./assets/Logoconv.png"/>
+            </div> 
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <div class="jumbotron converter">
                 <app-unit-types @unitschanged="changeunits"></app-unit-types>
                 <transition name="fade">
                    <app-converter :units="unitslist" v-if="unitslist.length > 0"></app-converter>    
                 </transition>
-                 
-    </div>
-
-     </div>
+            </div>
+        </div>
      <div class="col-md-3"></div>
  </div>
     </div>
@@ -82,8 +82,12 @@
 
 .converter
 {
-    background-color: white;
-    margin-top: 30%;
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0.00, #0036ff), color-stop(1.00, #001a9b));
+background: -webkit-linear-gradient(#0036ff, #001a9b);
+background: -moz-linear-gradient(#0036ff, #001a9b);
+background: -o-linear-gradient(#0036ff, #001a9b);
+background: -ms-linear-gradient(#0036ff, #001a9b);
+background: linear-gradient(#0036ff, #001a9b);
 }
 .col-sm-6
 {
